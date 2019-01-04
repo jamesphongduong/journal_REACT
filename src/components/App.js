@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CategorySelection from "./pages/CategorySelection";
 import NewEntryPage from "./pages/NewEntryPage";
+import JournalEntries from "./pages/JournalEntries";
 
 class App extends Component {
     state = {
@@ -38,6 +39,7 @@ class App extends Component {
                         render={(props) => {
                             return <NewEntryPage {...props} categories={categories} onEntryFormSubmit={this.onEntryFormSubmit}/>
                         }} />
+                        <Route exact path="/entries" component= {JournalEntries} />
                     </div>
                 </BrowserRouter>
             </div>
