@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
+import EntryForm from "./../forms/EntryForm";
 
 class NewEntryPage extends Component {
     state = { category: null, errorMessage: "" } 
@@ -15,6 +16,7 @@ class NewEntryPage extends Component {
 
     render() {
         const { category, errorMessage } = this.state;
+        const { onEntryFormSubmit } = this.props;
 
         if (errorMessage) {
             return <Redirect to="/category" />;
@@ -22,11 +24,14 @@ class NewEntryPage extends Component {
 
         return(
             <div> 
-                {errorMessage} 
                 {category && 
                     <div>
+                        <Link to="/category">
+                            <button>Back to Categories</button>
+                        </Link>
                         <h1>New {category} Page</h1>
-                </div>
+                        <EntryForm onEntryFormSubmit={onEntryFormSubmit} category={category}/>
+                    </div>
                 }
             </div>
         )
