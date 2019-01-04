@@ -22,7 +22,7 @@ class App extends Component {
     }
 
     render() {
-        const { categories } = this.state;
+        const { categories, entries } = this.state;
 
         return (
             <div> 
@@ -39,7 +39,10 @@ class App extends Component {
                         render={(props) => {
                             return <NewEntryPage {...props} categories={categories} onEntryFormSubmit={this.onEntryFormSubmit}/>
                         }} />
-                        <Route exact path="/entries" component= {JournalEntries} />
+                        <Route exact path="/entries" 
+                        render={() => {
+                            return <JournalEntries entries={entries} />
+                        }} />
                     </div>
                 </BrowserRouter>
             </div>

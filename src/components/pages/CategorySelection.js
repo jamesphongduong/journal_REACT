@@ -11,9 +11,9 @@ class CategorySelection extends Component {
                 <ul>
                     {categories.map((item, index) => {
                         return (
-                        <li key={item}>
-                            <Link to={`/entry/new/${index}`}>{item}</Link>
-                        </li>
+                            <li key={item}>
+                                <Link to={`/entry/new/${index}`}>{item}</Link>
+                            </li>
                         );
                     })}
                 </ul>

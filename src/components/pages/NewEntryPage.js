@@ -31,6 +31,9 @@ class NewEntryPage extends Component {
                         </Link>
                         <h1>New {category} Page</h1>
                         <EntryForm onEntryFormSubmit={onEntryFormSubmit} category={category}/>
+                            <Link to="/entries">
+                                <button>View all Entries</button>
+                            </Link>
                     </div>
                 }
             </div>
