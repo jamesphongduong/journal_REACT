@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import CategorySelection from "./pages/CategorySelection";
 import NewEntryPage from "./pages/NewEntryPage";
 import JournalEntries from "./pages/JournalEntries";
+import SingleJournalEntry from "./pages/SingleJournalEntry";
 
 class App extends Component {
     state = {
@@ -32,7 +33,7 @@ class App extends Component {
 
     render() {
         const { categories, entries } = this.state;
-
+        //seems {have to pass via ..props if using render method? we use render in order to pass through extra custom props ontop of the Route props?
         return (
             <div> 
                 <BrowserRouter> 
@@ -51,6 +52,10 @@ class App extends Component {
                         <Route exact path="/entries" 
                         render={(props) => {
                             return <JournalEntries {...props} entries={entries} onEntryDeleteSubmit={this.onEntryDeleteSubmit}/>
+                        }} />
+                        <Route exact path="/entries/:id"
+                        render={(props) => {
+                            return <SingleJournalEntry {...props} entries={entries} />
                         }} />
                     </div>
                 </BrowserRouter>

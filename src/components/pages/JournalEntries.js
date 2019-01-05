@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class JournalEntries extends Component {
     
@@ -14,12 +15,19 @@ class JournalEntries extends Component {
                         return (
                         <li key={item.entry}>
                             {item.entry} 
+                            {/* button to delete single entry */}
                             <button onClick={
                                 () => {
                                     onEntryDeleteSubmit(index);
                                 }
                                 }> Delete entry 
                             </button>
+                            {/* button to navigate to view single entry */}
+                            <Link to={`/entries/${index}`}>
+                                <button>
+                                    View entry 
+                                </button>
+                            </Link>
                         </li>
                         );
                     })}
