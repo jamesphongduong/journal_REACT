@@ -11,3 +11,6 @@ Beast Mode+
 
 Beast Mode++
 //Allow the user to edit a journal entry
+
+//todo
+based on category - color code the entry background

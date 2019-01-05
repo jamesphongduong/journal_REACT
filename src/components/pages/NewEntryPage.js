@@ -26,16 +26,18 @@ class NewEntryPage extends Component {
             <div> 
                 {category && 
                     <div>
-                        <Link to="/category">
-                            <button>Back to Categories</button>
-                        </Link>
-                        <h1>New {category} Page</h1>
+
+                        <h1>New {category} Entry</h1>
                         <EntryForm onEntryFormSubmit={onEntryFormSubmit} category={category}/>
                             <Link to="/entries">
-                                <button>View all Entries</button>
+                                <button>View All Entries</button>
                             </Link>
                     </div>
                 }
+                <br />
+                <Link to="/">
+                    <button>Back To Home</button>
+                </Link>
             </div>
         )
     }

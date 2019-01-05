@@ -9,7 +9,7 @@ import EditEntryPage from "./pages/EditEntryPage";
 
 class App extends Component {
     state = {
-        categories: ["food", "thoughts", "romance"],
+        categories: ["Food", "Thoughts", "Romance"],
         entries: []
     }
 
