@@ -9,25 +9,26 @@ class EditForm extends Component {
     }
 
     onEditFormSubmit = (event) => {
+        const { onEditEntryFormSubmit, index } = this.props;
+        const { entry } = this.state;
+        
         event.preventDefault();
-        this.props.onEditEntryFormSubmit(this.props.index, this.state.entry);
+        onEditEntryFormSubmit(index,entry);
         this.setState({ redirect: true });
     }
 
     render() {
-        const { redirect } = this.state;
+        const { redirect, entry } = this.state;
+        const onEditFormSubmit = this.onEditFormSubmit;
+        const onTextAreaChange = this.onTextAreaChange;
 
         if (redirect) {
             return <Redirect to="/entries" />;
         }
         
-        console.log("editform");
-        console.log(this.props);
-        console.log(this.props.entries);
-        console.log(this.props.index);
         return (
-            <form onSubmit={this.onEditFormSubmit}>
-                <textarea value={this.state.entry} onChange={this.onTextAreaChange}>
+            <form onSubmit={onEditFormSubmit}>
+                <textarea value={entry} onChange={onTextAreaChange}>
                 </textarea>
                 <div>
                     <input type="submit" value="Edit Entry" />

@@ -15,12 +15,13 @@ class EntryForm extends Component {
         onEntryFormSubmit({ category, entry });
         // Clear the form after a user submits & 
         // Redirects to ALL entries page
-        console.log(this.state); //why is the redirect not stayed as true??
+        //why is the redirect not stayed as true??
         this.setState({ entry: "", redirect: true });
     }
 
     render() {
         const { entry, redirect } = this.state;
+        const onTextAreaChange = this.onTextAreaChange;
 
         if (redirect) {
             return <Redirect to="/entries" />;
@@ -28,7 +29,7 @@ class EntryForm extends Component {
 
         return (
             <form onSubmit={this.onFormSubmit}>
-                <textarea value={entry} onChange={this.onTextAreaChange}></textarea>
+                <textarea value={entry} onChange={onTextAreaChange}></textarea>
                 <div>
                     <input type="submit" value="Create New Entry" />
                 </div>
