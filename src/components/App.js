@@ -12,12 +12,21 @@ class App extends Component {
     }
 
     componentDidUpdate() {
+        console.log("component updated");
         console.log(this.state);
     }
 
     onEntryFormSubmit = (entry) => {
         this.setState((state) => {
             return { entries: [...state.entries, entry ]};
+        });
+    }
+
+    onEntryDeleteSubmit = (index) => {
+        this.setState((state) => {
+            return { entries: state.entries.filter(element => {
+                return element !== state.entries[index];
+            }) };
         });
     }
 
@@ -40,8 +49,8 @@ class App extends Component {
                             return <NewEntryPage {...props} categories={categories} onEntryFormSubmit={this.onEntryFormSubmit}/>
                         }} />
                         <Route exact path="/entries" 
-                        render={() => {
-                            return <JournalEntries entries={entries} />
+                        render={(props) => {
+                            return <JournalEntries {...props} entries={entries} onEntryDeleteSubmit={this.onEntryDeleteSubmit}/>
                         }} />
                     </div>
                 </BrowserRouter>
