@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 class EntryForm extends Component {
-    state = { entry: "" }
+    state = { entry: "", redirect: false }
 
     onTextAreaChange = (event) => {
         this.setState({ entry: event.target.value });
@@ -12,12 +13,18 @@ class EntryForm extends Component {
         const { entry } = this.state;
         const { onEntryFormSubmit, category } = this.props;
         onEntryFormSubmit({ category, entry });
-        ////Clear the form after a user submits
-        this.setState({ entry: "" });
+        // Clear the form after a user submits & 
+        // Redirects to ALL entries page
+        console.log(this.state); //why is the redirect not stayed as true??
+        this.setState({ entry: "", redirect: true });
     }
 
     render() {
-        const { entry } = this.state;
+        const { entry, redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to="/entries" />;
+            }
 
         return (
             <form onSubmit={this.onFormSubmit}>
