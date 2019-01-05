@@ -28,6 +28,9 @@ class JournalEntries extends Component {
                                     View entry 
                                 </button>
                             </Link>
+                            <Link to={`/entries/${index}/edit`}>
+                            <button> Edit Journal Entry </button>
+                            </Link>
                         </li>
                         );
                     })}

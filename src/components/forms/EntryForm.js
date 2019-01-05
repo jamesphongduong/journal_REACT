@@ -30,7 +30,7 @@ class EntryForm extends Component {
             <form onSubmit={this.onFormSubmit}>
                 <textarea value={entry} onChange={this.onTextAreaChange}></textarea>
                 <div>
-                    <input type="submit" value="create new entry" />
+                    <input type="submit" value="Create New Entry" />
                 </div>
             </form>
         );

@@ -5,6 +5,7 @@ import CategorySelection from "./pages/CategorySelection";
 import NewEntryPage from "./pages/NewEntryPage";
 import JournalEntries from "./pages/JournalEntries";
 import SingleJournalEntry from "./pages/SingleJournalEntry";
+import EditEntryPage from "./pages/EditEntryPage";
 
 class App extends Component {
     state = {
@@ -20,6 +21,14 @@ class App extends Component {
     onEntryFormSubmit = (entry) => {
         this.setState((state) => {
             return { entries: [...state.entries, entry ]};
+        });
+    }
+
+    onEditEntryFormSubmit = (index, entry) => {
+        this.setState((state) => {
+            const editedArray = state.entries;
+            editedArray[index].entry = entry;
+            return { entries: editedArray };
         });
     }
 
@@ -56,6 +65,11 @@ class App extends Component {
                         <Route exact path="/entries/:id"
                         render={(props) => {
                             return <SingleJournalEntry {...props} entries={entries} />
+                        }} />
+                        <Route exact path="/entries/:id/edit"
+                        render={(props) => {
+                            return <EditEntryPage {...props}
+                            entries={entries} onEditEntryFormSubmit={this.onEditEntryFormSubmit}/>
                         }} />
                     </div>
                 </BrowserRouter>
