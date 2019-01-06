@@ -43,7 +43,6 @@ class App extends Component {
     render() {
         const { categories, entries } = this.state;
         
-        //seems {have to pass via ..props if using render method? we use render in order to pass through extra custom props ontop of the Route props?
         return (
             <div> 
                 <BrowserRouter> 
