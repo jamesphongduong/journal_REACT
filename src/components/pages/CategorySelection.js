@@ -8,11 +8,11 @@ class CategorySelection extends Component {
         return(
             <div className="center"> 
                 <h1>Category Selection</h1>
-                <ul>
+                <ul className="list">
                     {categories.map((item, index) => {
                         return (
-                            <li key={item}>
-                                <Link to={`/entry/new/${index}`}>{item}</Link>
+                            <li key={item} >
+                                <Link className="ui button" to={`/entry/new/${index}`}>{item}</Link>
                             </li>
                         );
                     })}

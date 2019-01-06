@@ -33,7 +33,8 @@ li {
     list-style: none;
 }
 
-
-ul {
-    margin-left: -20px;
+.list {
+    display: flex;
+    margin-left: -50px;
 }
+
