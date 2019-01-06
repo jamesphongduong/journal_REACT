@@ -7,6 +7,7 @@ class EditEntryPage extends Component {
         const { entries, onEditEntryFormSubmit } = this.props;
         const { id } = this.props.match.params;
 
+
         return (
             <div>
                 <h1 className="title-center"> Journal Entry </h1> 

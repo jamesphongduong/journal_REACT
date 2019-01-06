@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 
 class EditForm extends Component {
-    state = { entry: this.props.entries[this.props.index].entry, redirect: false }
+    state = { entry: null, errorMessage: "", redirect: false }
+
+    componentDidMount() {
+        const { entries } = this.props; 
+        if (entries.length === 0) {
+            return this.setState({ errorMessage: "no entries to edit!" })
+        }
+        return this.setState({ entry: this.props.entries[this.props.index].entry });
+    }
 
     onTextAreaChange = (event) => {
         this.setState({ entry: event.target.value });
@@ -18,11 +26,11 @@ class EditForm extends Component {
     }
 
     render() {
-        const { redirect, entry } = this.state;
+        const { redirect, entry, errorMessage } = this.state;
         const onEditFormSubmit = this.onEditFormSubmit;
         const onTextAreaChange = this.onTextAreaChange;
 
-        if (redirect) {
+        if (errorMessage || redirect) {
             return <Redirect to="/entries" />;
         }
         
