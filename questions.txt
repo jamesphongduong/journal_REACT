@@ -1,3 +1,0 @@
-- when redirecting, css is ignored, e.g. going to entries/1 (when no entries) redirects to homepage with no styling
-- setting redirect to true, why its reset back to false, check forms
--difference between rendering and component in Router? can pass through custom props in rendering? 
