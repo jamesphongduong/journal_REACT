@@ -6,7 +6,7 @@ class CategorySelection extends Component {
         const { categories } = this.props;
 
         return(
-            <div> 
+            <div className="center"> 
                 <h1>Category Selection</h1>
                 <ul>
                     {categories.map((item, index) => {

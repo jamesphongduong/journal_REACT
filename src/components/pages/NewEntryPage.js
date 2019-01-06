@@ -23,20 +23,15 @@ class NewEntryPage extends Component {
         }
 
         return(
-            <div> 
+            <div className="padding"> 
                 {category && 
                     <div>
-
-                        <h1>New {category} Entry</h1>
+                        <h1 className="title-center">New {category} Entry</h1>
                         <EntryForm onEntryFormSubmit={onEntryFormSubmit} category={category}/>
-                            <Link to="/entries">
-                                <button>View All Entries</button>
-                            </Link>
                     </div>
                 }
-                <br />
                 <Link to="/">
-                    <button>Back To Home</button>
+                    <button className="ui button">Back To Home</button>
                 </Link>
             </div>
         )

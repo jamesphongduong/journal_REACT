@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect} from "react-router-dom";
 
 class EntryForm extends Component {
     state = { entry: "", redirect: false }
@@ -22,16 +22,19 @@ class EntryForm extends Component {
     render() {
         const { entry, redirect } = this.state;
         const onTextAreaChange = this.onTextAreaChange;
+        const onFormSubmit = this.onFormSubmit;
 
         if (redirect) {
             return <Redirect to="/entries" />;
             }
 
         return (
-            <form onSubmit={this.onFormSubmit}>
-                <textarea value={entry} onChange={onTextAreaChange}></textarea>
+            <form className="ui form" onSubmit={onFormSubmit}>
+                <div className="field">
+                    <textarea value={entry} onChange={onTextAreaChange}></textarea>
+                </div>
                 <div>
-                    <input type="submit" value="Create New Entry" />
+                    <input className="ui button" type="submit" value="Create New Entry" />
                 </div>
             </form>
         );

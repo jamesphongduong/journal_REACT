@@ -28,19 +28,27 @@ class SingleJournalEntry extends Component {
         }
 
         return (
-            <div>
+            <div className="center">
                 <h1> Journal Entry </h1>
-                <div>
+                <li>
                     { entries[id].entry }
+                </li>
+                <div>
+                    <Link to={`/entries/${pageDirector(-1)}`}>
+                        <button className="ui button">
+                            Previous Journal Entry
+                        </button>
+                    </Link>
+                    <Link to={`/entries/${pageDirector(+1)}`}>
+                        <button className="ui button">Next Journal Entry</button>
+                    </Link>
                 </div>
-                <Link to={`/entries/${pageDirector(-1)}`}>
-                    <button>
-                        Previous Journal Entry
-                    </button>
-                </Link>
-                <Link to={`/entries/${pageDirector(+1)}`}>
-                    <button >Next Journal Entry</button>
-                </Link>
+                
+                <div>
+                    <Link to="/">
+                        <button className="ui button margin">Back to Home</button>
+                    </Link>
+                </div>
             </div>
         );
     }

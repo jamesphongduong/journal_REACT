@@ -9,7 +9,7 @@ class EditEntryPage extends Component {
 
         return (
             <div>
-                <h1> Journal Entry </h1> 
+                <h1 className="title-center"> Journal Entry </h1> 
                 <EditForm entries={entries} index={id} onEditEntryFormSubmit={onEditEntryFormSubmit}/>
             </div>
         );

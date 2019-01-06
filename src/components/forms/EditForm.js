@@ -27,11 +27,13 @@ class EditForm extends Component {
         }
         
         return (
-            <form onSubmit={onEditFormSubmit}>
-                <textarea value={entry} onChange={onTextAreaChange}>
-                </textarea>
-                <div>
-                    <input type="submit" value="Edit Entry" />
+            <form className="ui form" onSubmit={onEditFormSubmit}>
+                <div className="field">
+                    <textarea value={entry} onChange={onTextAreaChange}>
+                    </textarea>
+                    <div>
+                        <input className="ui button" type="submit" value="Edit Entry" />
+                    </div>
                 </div>
             </form>
         );
